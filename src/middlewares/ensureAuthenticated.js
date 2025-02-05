@@ -5,11 +5,11 @@ const authConfig = require('../configs/auth');
 function ensureAuthenticated(request, response, next) {
   const authHeader = request.headers.authorization;
 
-  if (!authHeader.cookie) {
+  if (!authHeader) {
     throw new AppError('JWT token não informado', 401);
   }
 
-  const [, token] = authHeader.split('token= ');
+  const [, token] = authHeader.split(' ');
 
   try {
     const {role, sub: user_id } = verify(token, authConfig.jwt.secret);
