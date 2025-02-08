@@ -17,12 +17,12 @@ class UserAvatarController {
             throw new AppError("Somente usuários autorizados podem mudar o avatar",401);
         }
 
-        if (user.foto_prato) {
-            await diskStorage.deleteFile(user.foto_prato)
+        if (user.dish_photo) {
+            await diskStorage.deleteFile(user.dish_photo)
         }
 
         const filename = await diskStorage.saveFile(dishFilename);
-        user.foto_prato = filename;
+        user.dish_photo = filename;
 
         await knex("users").update(user).where({ id:user_id});
 
