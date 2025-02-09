@@ -3,7 +3,7 @@ const knex = require("../database/knex");
 const AppError = require("../utils/AppError");
 const DiskStorage = require("../providers/DiskStorage");
 
-class UserAvatarController {
+class UserImageController {
     async update(request,response){
         const user_id = request.user.id;
         const dishFilename = request.file.filename;
@@ -32,4 +32,4 @@ class UserAvatarController {
 
 
 
-module.exports = UserAvatarController;
+module.exports = UserImageController;
