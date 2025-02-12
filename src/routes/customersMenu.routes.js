@@ -9,7 +9,7 @@ const  customersMenuController = new  CustomersMenuController();
 
 customersMenuRoutes.use(ensureAuthenticated);
 
-customersMenuRoutes.get("/",  customersMenuController.index);
-customersMenuRoutes.post("/", verifyUserAuthorization("customer"),  customersMenuController.create);
+customersMenuRoutes.get("/",verifyUserAuthorization("customer"),  customersMenuController.index);
+
 
 module.exports = customersMenuRoutes;

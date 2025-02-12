@@ -9,7 +9,7 @@ const addController = new  AddController();
 
 addRoutes.use(ensureAuthenticated);
 
-addRoutes.get("/",  addController.index);
+
 addRoutes.post("/", verifyUserAuthorization("admin"),  addController.create);
 
 module.exports = addRoutes;

@@ -9,7 +9,7 @@ const  customersDishController = new  CustomersDishController();
 
 customersDishRoutes.use(ensureAuthenticated);
 
-customersDishRoutes.get("/",  customersDishController.index);
-customersDishRoutes.post("/", verifyUserAuthorization("admin"),  customersDishController.create);
+customersDishRoutes.get("/",verifyUserAuthorization("customer"),  customersDishController.show);
+
 
 module.exports = customersDishRoutes;

@@ -9,7 +9,7 @@ const customersDishRouter = require("./customersDish.routes");
 const adminMenuRouter = require("./adminMenu.routes");
 const adminDishRouter = require("./adminDish.routes");
 const addRouter = require("./add.routes");
-const editRouter = require("./edit.routes");
+const updateRouter = require("./update.routes");
 
 const routes = Router();
 
@@ -22,7 +22,7 @@ routes.use("/customersdish", customersDishRouter);
 routes.use("/adminmenu", adminMenuRouter);
 routes.use("/admindish", adminDishRouter);
 routes.use("/add", addRouter);
-routes.use("/edit", editRouter);
+routes.use("/update", updateRouter);
 
 
 

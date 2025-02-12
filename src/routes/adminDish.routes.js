@@ -9,7 +9,7 @@ const adminDishController = new  AdminDishController();
 
 adminDishRoutes.use(ensureAuthenticated);
 
-adminDishRoutes.get("/",  adminDishController.index);
-adminDishRoutes.post("/", verifyUserAuthorization("admin"), adminDishController.create);
+adminDishRoutes.get("/",verifyUserAuthorization("admin"),  adminDishController.show);
+
 
 module.exports = adminDishRoutes;

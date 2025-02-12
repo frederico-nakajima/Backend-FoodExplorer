@@ -3,17 +3,20 @@ const knex = require("../database/knex")
 
 class AdminDishController{
 
-  async index(request, response) {
-    const user_id = request.user.id;
-
-    const dishes = await knex("dishes")
-      .select("name", "price", "description") // Apenas os campos desejados
-      .where({ user_id })
+  async show (request,response){
+    const{ id } = request.params
+    const dish = await knex("dishes").where({id}).first()
+    const tags = await knex ("tags").where({dish_id:id}).orderBy("name")
     
-    return response.json(dishes);
+    return response.json({
+      ...dish,
+      tags
+    })
   }
-  
+ 
 }
+  
+
 
 
 module.exports = AdminDishController;

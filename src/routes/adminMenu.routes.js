@@ -9,7 +9,7 @@ const  adminMenuController = new  AdminMenuController();
 
 adminMenuRoutes.use(ensureAuthenticated);
 
-adminMenuRoutes.get("/",  adminMenuController.index);
-adminMenuRoutes.post("/", verifyUserAuthorization("admin"),  adminMenuController.create);
+adminMenuRoutes.get("/",verifyUserAuthorization("admin"),  adminMenuController.index);
+
 
 module.exports = adminMenuRoutes;
