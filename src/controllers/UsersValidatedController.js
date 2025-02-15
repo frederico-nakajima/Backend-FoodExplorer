@@ -11,7 +11,7 @@ class UsersValidatedController {
       throw new AppError("Unauthorized", 401);
     }
 
-    return response.status(200).json();
+    response.status(200).json({ message: "Usuário validado com sucesso" });
   }
 }
 
