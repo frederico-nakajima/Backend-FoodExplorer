@@ -5,10 +5,7 @@ class DishesController{
   async create(request,response){ 
     const{name,category,tags,price,description}= request.body;
     const user_id = request.user.id;
-
     
-    
-
     const [dish_id] = await knex("dishes").insert({
       name,
       category,
@@ -16,8 +13,7 @@ class DishesController{
       description,
       user_id
     })
-    console.log("✅ Prato salvo com ID:", dish_id);
-    
+        
     const tagsInsert = tags.map(name => {
       return {
         dish_id,          
@@ -27,8 +23,7 @@ class DishesController{
     });
 
     await knex("tags").insert(tagsInsert)
-    console.log("✅ Tags salvas:", tagsInsert);
-
+    
     return response.json()
 
   }
