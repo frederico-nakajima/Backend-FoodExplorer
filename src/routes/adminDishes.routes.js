@@ -18,7 +18,7 @@ dishesRoutes.get("/:id",verifyUserAuthorization("admin"),  adminDishesController
 dishesRoutes.delete("/:id", verifyUserAuthorization("admin"), adminDishesController.delete);
 dishesRoutes.put("/:id", verifyUserAuthorization("admin"), adminDishesController.update);
 dishesRoutes.get("/",verifyUserAuthorization("admin"),  adminDishesController.index);
-dishesRoutes.patch("/image", ensureAuthenticated, upload.single("image"), dishesImageController.update);
+dishesRoutes.patch("/image/:dish_id", verifyUserAuthorization("admin"), upload.single("image"), dishesImageController.update);
 
 
 module.exports = dishesRoutes;

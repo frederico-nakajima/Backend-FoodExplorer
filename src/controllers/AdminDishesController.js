@@ -24,7 +24,7 @@ class AdminDishesController{
 
     await knex("tags").insert(tagsInsert)
     
-    return response.json()
+    return response.status(201).json({ id: dish_id });
 
   }
   
