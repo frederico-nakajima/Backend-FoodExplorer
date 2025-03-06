@@ -90,17 +90,8 @@ class AdminDishesController{
 
     // 🔍 Aplica filtros dinamicamente apenas se o usuário os enviar
     if (name) {
-        query.where("name", "ILIKE", `%${name}%`); // 🔹 Busca parcial (case insensitive)
-    }
-    if (category) {
-        query.where("category", category); // 🔹 Filtra pela categoria exata
-    }
-    if (price) {
-        query.where("price", "<=", parseFloat(price)); // 🔹 Busca pratos com preço menor ou igual
-    }
-    if (description) {
-        query.where("description", "ILIKE", `%${description}%`); // 🔹 Busca parcial na descrição
-    }
+        query.where("name", "LIKE", `%${name}%`); // 🔹 Busca parcial (case insensitive)
+    } 
 
     try {
         const dishes = await query; // 🔹 Executa a consulta
@@ -109,7 +100,7 @@ class AdminDishesController{
         console.error("Erro ao buscar pratos:", error);
         return response.status(500).json({ error: "Erro ao buscar pratos" });
     }
-}
+  }
 
 
 } 
