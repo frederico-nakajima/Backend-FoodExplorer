@@ -59,12 +59,14 @@ class AdminDishesController{
     
   }
 
-
   async show (request,response){
     const{ id } = request.params
-
+    
     const dish = await knex("dishes").where({id}).first()
-    const tags = await knex ("tags").where({dish_id:id}).orderBy("name")
+    const tags = await knex ("tags")
+    .where({dish_id:id})
+    .orderBy("name")
+    .pluck("name");
     
     return response.json({
       ...dish,
@@ -74,27 +76,24 @@ class AdminDishesController{
   
   async delete(request,response){
     const {id} = request.params
-
     await knex ("dishes").where({id}).delete()
 
     return response.json()
-
   }
   
   
   
   async index(request, response) {
-    const { name, category, price, description } = request.query;
+    const { name } = request.query;
 
-    let query = knex("dishes").select("*"); // 🔹 Busca todos os pratos por padrão
-
-    // 🔍 Aplica filtros dinamicamente apenas se o usuário os enviar
+    let query = knex("dishes").select("*");
+    
     if (name) {
-        query.where("name", "LIKE", `%${name}%`); // 🔹 Busca parcial (case insensitive)
+        query.where("name", "LIKE", `%${name}%`); 
     } 
 
     try {
-        const dishes = await query; // 🔹 Executa a consulta
+        const dishes = await query; 
         return response.json(dishes);
     } catch (error) {
         console.error("Erro ao buscar pratos:", error);

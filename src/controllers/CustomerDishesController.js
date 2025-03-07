@@ -21,7 +21,7 @@ class CustomerDishesController{
 
     // 🔍 Aplica filtros dinamicamente apenas se o usuário os enviar
     if (name) {
-        query.where("name", "ILIKE", `%${name}%`); // 🔹 Busca parcial (case insensitive)
+        query.where("name", "LIKE", `%${name}%`); // 🔹 Busca parcial (case insensitive)
     }
     if (category) {
         query.where("category", category); // 🔹 Filtra pela categoria exata
@@ -30,7 +30,7 @@ class CustomerDishesController{
         query.where("price", "<=", parseFloat(price)); // 🔹 Busca pratos com preço menor ou igual
     }
     if (description) {
-        query.where("description", "ILIKE", `%${description}%`); // 🔹 Busca parcial na descrição
+        query.where("description", "LIKE", `%${description}%`); // 🔹 Busca parcial na descrição
     }
 
     try {
