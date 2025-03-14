@@ -15,33 +15,54 @@ class CustomerDishesController{
   } 
   
   async index(request, response) {
-    const { name, category, price, description } = request.query;
-
-    let query = knex("dishes").select("*"); 
-
-    // 🔍 Aplica filtros dinamicamente apenas se o usuário os enviar
-    if (name) {
-        query.where("name", "LIKE", `%${name}%`); // 🔹 Busca parcial (case insensitive)
-    }
-    if (category) {
-        query.where("category", category); // 🔹 Filtra pela categoria exata
-    }
-    if (price) {
-        query.where("price", "<=", parseFloat(price)); // 🔹 Busca pratos com preço menor ou igual
-    }
-    if (description) {
-        query.where("description", "LIKE", `%${description}%`); // 🔹 Busca parcial na descrição
-    }
-
+    const { name } = request.query;
+  
     try {
-        const dishes = await query; // 🔹 Executa a consulta
-        return response.json(dishes);
+      let dishes;
+  
+      if (name) {
+        // Se houver um filtro por nome, busca nos dois: pratos e tags
+        dishes = await knex("dishes")
+          .leftJoin("tags", "dishes.id", "tags.dish_id")
+          .select(
+            "dishes.id",
+            "dishes.name",
+            "dishes.category",
+            "dishes.price",
+            "dishes.description",
+            "dishes.user_id",
+            "dishes.image" 
+          )
+          
+          .where(function () {
+            this.where("dishes.name", "like", `%${name}%`)
+              .orWhere("tags.name", "like", `%${name}%`);
+          })
+          .groupBy("dishes.id") 
+          .orderBy("dishes.name");
+      } else {
+        // Se não houver filtro, retorna todos os pratos
+        dishes = await knex("dishes")
+          .select(
+            "dishes.id",
+            "dishes.name",
+            "dishes.category",
+            "dishes.price",
+            "dishes.description",
+            "dishes.user_id",
+            "dishes.image" 
+          )
+        
+          .orderBy("dishes.name");
+        }
+  
+      return response.json(dishes);
     } catch (error) {
-        console.error("Erro ao buscar pratos:", error);
-        return response.status(500).json({ error: "Erro ao buscar pratos" });
+      console.error("Erro ao buscar pratos:", error);
+      return response.status(500).json({ error: "Erro ao buscar pratos" });
     }
-}
-
+  }
+  
 
 } 
 
