@@ -7,9 +7,8 @@ class DishesImageController {
     async update(request,response){
         const { dish_id }  = request.params;
         const dishFilename = request.file.filename;
-
         const diskStorage = new DiskStorage();
-
+        
         const dish = await knex("dishes")
         .where({id:dish_id })
         .first();

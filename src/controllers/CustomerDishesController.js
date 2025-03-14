@@ -20,8 +20,7 @@ class CustomerDishesController{
     try {
       let dishes;
   
-      if (name) {
-        // Se houver um filtro por nome, busca nos dois: pratos e tags
+      if (name) {       
         dishes = await knex("dishes")
           .leftJoin("tags", "dishes.id", "tags.dish_id")
           .select(
@@ -32,8 +31,7 @@ class CustomerDishesController{
             "dishes.description",
             "dishes.user_id",
             "dishes.image" 
-          )
-          
+          )          
           .where(function () {
             this.where("dishes.name", "like", `%${name}%`)
               .orWhere("tags.name", "like", `%${name}%`);
@@ -41,7 +39,7 @@ class CustomerDishesController{
           .groupBy("dishes.id") 
           .orderBy("dishes.name");
       } else {
-        // Se não houver filtro, retorna todos os pratos
+       
         dishes = await knex("dishes")
           .select(
             "dishes.id",
