@@ -11,7 +11,7 @@ const cookieParser = require("cookie-parser")
 const app = express();
 app.use(cookieParser());
 app.use(cors({
-    origin: ["http://localhost:5173","http://127.0.0.1:5173"],
+    origin: ["http://localhost:5173","http://127.0.0.1:5173","https://harmonious-zabaione-87f900.netlify.app/"],
     credentials:true
 }));
 
