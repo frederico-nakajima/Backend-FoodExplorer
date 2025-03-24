@@ -16,14 +16,11 @@ class DishesImageController {
         if (!dish) {
             throw new AppError("Prato não encontrado.", 404);
         }
-
         if (dish.image) {
             await diskStorage.deleteFile(dish.image)
         }
-
         const filename = await diskStorage.saveFile(dishFilename);
         dish.image = filename;
-
         await knex("dishes").update({ image: filename }).where({ id:dish_id});
 
         return response.json(dish);

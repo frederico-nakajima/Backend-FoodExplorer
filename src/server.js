@@ -8,7 +8,6 @@ const express = require("express")
 const routes = require("./routes");
 const cookieParser = require("cookie-parser")
 
-
 const app = express();
 app.use(cookieParser());
 app.use(cors({
@@ -21,8 +20,6 @@ app.use(express.json());
 app.use("/files", express.static(uploadConfig.UPLOADS_FOLDER));
 
 app.use(routes);
-
-
 
 app.use((error,request,response,next) => {
     if(error instanceof AppError){
@@ -37,9 +34,6 @@ app.use((error,request,response,next) => {
         message:"Internal server error",
     })
 })
-
-
-
 
 const PORT = 3333;
 app.listen(PORT, () => console.log(`Server is running on Port ${PORT}`))

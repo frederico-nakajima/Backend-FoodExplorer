@@ -1,10 +1,8 @@
-const knex = require("../database/knex")
-
+const knex = require("../database/knex");
 
 class CustomerDishesController{
   async show (request,response){
-    const{ id } = request.params
-
+    const{ id } = request.params;
     const dish = await knex("dishes").where({id}).first()
     const tags = await knex ("tags").where({dish_id:id}).orderBy("name")
     
@@ -38,31 +36,26 @@ class CustomerDishesController{
           })
           .groupBy("dishes.id") 
           .orderBy("dishes.name");
-      } else {
-       
+      } else {       
         dishes = await knex("dishes")
-          .select(
-            "dishes.id",
-            "dishes.name",
-            "dishes.category",
-            "dishes.price",
-            "dishes.description",
-            "dishes.user_id",
-            "dishes.image" 
-          )
-        
-          .orderBy("dishes.name");
-        }
+        .select(
+          "dishes.id",
+          "dishes.name",
+          "dishes.category",
+          "dishes.price",
+          "dishes.description",
+          "dishes.user_id",
+          "dishes.image" 
+        )      
+        .orderBy("dishes.name");
+      }
   
       return response.json(dishes);
     } catch (error) {
-      console.error("Erro ao buscar pratos:", error);
+        console.error("Erro ao buscar pratos:", error);
       return response.status(500).json({ error: "Erro ao buscar pratos" });
     }
   }
-  
-
-} 
-
+}
 
 module.exports = CustomerDishesController;
