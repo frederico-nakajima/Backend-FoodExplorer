@@ -1,0 +1,13 @@
+id,image,name,category,user_id,price,description,created_at,updated_at
+122,1a523f794d2cb9d728c9-Mask group-9.png,Espresso,Bebidas,1,15.87,Café cremoso feito na temperatura e pressões perfeitas,2025-03-18 18:40:02,2025-03-18 18:40:02
+123,f346cf38e1f96378d979-Mask group-8.png,"Suco de maracujá ",Bebidas,1,13.97,"Suco de maracujá gelado, cremoso, docinho.",2025-03-18 18:42:40,2025-03-18 18:42:40
+124,311af4d4168ab7af23e0-Mask group-10.png,"Tè d'autunno ",Bebidas,1,19.97,"Chá de anis, canela e limão. Sinta o outono italiano.",2025-03-18 18:45:22,2025-03-18 18:45:22
+125,a332a0a4927961da460b-Mask group-11.png,coquetel,Bebidas,1,40,"Mistura de whisky, suco de maçã ou cidra, um toque de limão e canela",2025-03-18 18:48:25,2025-03-18 18:48:25
+126,66131813eb14da88af73-Mask group-4.png,Prugna Pie,Sobremesas,1,79.97,"Torta de ameixa com massa amanteigada, povilho em açucar",2025-03-18 18:51:34,2025-03-18 18:51:34
+127,0656fd225e60396461c9-Mask group-5.png,"Peachy pastrie ",Sobremesas,1,32.97,Delicioso folheado de pêssego com folhas de hortelã.,2025-03-18 18:54:28,2025-03-18 18:54:28
+128,3ddc37be140bba6a3b12-Mask group-6.png,Macarons,Sobremesas,1,79.97,"Farinha de amêndoas, manteiga, claras e açúcar.",2025-03-18 18:57:56,2025-03-18 18:57:56
+129,c0775a4469bdef49bbef-Mask group-7.png,Pflaumenkuchen,Sobremesas,1,18,"Torta é feito com uma base de massa (que pode ser tipo bolo ou pão doce), coberta com ameixas ",2025-03-18 19:01:36,2025-03-18 19:01:36
+130,1c2fb93cbf70aca5263f-Mask group-1.png,"Torradas de Parma ",Refeições,1,25.97,Presunto de parma e rúcula em um pão com fermentação natural.,2025-03-18 19:04:52,2025-03-18 19:04:52
+131,f3a68e31337edca47408-Mask group.png,Salada Ravanello,Refeições,1,49.97,"Rabanetes, folhas verdes e molho agridoce salpicados com gergelim",2025-03-18 19:09:11,2025-03-18 19:09:11
+132,021bdbe5384a0b8d4d68-Mask group-2.png,"Spaguetti Gambe ",Refeições,1,79.97,"Massa fresca com camarões e pesto. ",2025-03-18 19:12:00,2025-03-18 19:12:00
+133,759920994abe3d035530-Mask group-3.png,Salada Garden,Refeições,1,25,"Uma combinação fresca e vibrante de folhas selecionadas, tomates-cereja suculentos",2025-03-18 19:15:09,2025-03-18 19:15:09

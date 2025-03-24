@@ -1,0 +1,3 @@
+id,name,email,password,role,created_at,updated_at
+1,admin,admin@email.com,$2a$08$ThGeU/l87mAUZNcHjRpjo.rHkv8JSCSopIiDWPoHlL6xPzYmqG6WS,admin,2025-02-23 03:38:32,2025-02-23 03:38:32
+2,customer,customer@email.com,$2a$08$1Qs6Sz5K/A2W.yl3vGLKQ.yWoPnHRye7JJ6Xhd/P.BeVvBjZXCMYy,customer,2025-02-23 03:38:58,2025-02-23 03:38:58
