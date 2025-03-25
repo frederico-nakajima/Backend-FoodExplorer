@@ -59,9 +59,10 @@ A API está disponível publicamente em:
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/backend-foodexplorer.git
+git clone git@github.com:frederico-nakajima/Backend-FoodExplorer.git
+```
 
-
+---
 
 
 📄 Licença
